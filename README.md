@@ -1,1 +1,1 @@
-# SMPC
+# Personal Takeaways from SMPC Materials
