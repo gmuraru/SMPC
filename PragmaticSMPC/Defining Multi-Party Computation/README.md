@@ -41,3 +41,27 @@
     $$
          \Delta(D_1(n), D_2(n)) \le \sqrt{\frac{1}{2}D_{KL}(D_1(n)||D_2(n))}
     $$
+
+## 2.2 Base Primitives
+
+### Secret sharing
+
+A **(t, n)-secret sharing scheme** splits the *secret s* into *n shares*, such that to reveal the secret one needs *at least t* shares.
+
+**Def:**
+  $$
+    Shr: D \rightarrow D_{1}^n\ a\ sharing\ algorithm 
+    \\
+    Rec: D_1^k \rightarrow D\ a\ reconstruction\ algorithm
+  $$
+  A (t, n)-secret sharing scheme is a pair of algorithms (Shr, Rec) that satisfies two properties:
+
+- **Correcntess:**
+  - $Shr(s) = (s_1, s_2, ..., s_n) \rightarrow Pr[\forall\ k \ge\ t,\ Rec(s_{i_1}, ..., s_{i_k})] = 1$
+
+- **Perfect Privacy:** if any party has **less than t shares** then they can not obtain any information about the secret
+  - $Pr[v = Shr(a)|_k] == Pr[v = Shr(b)|_k]$
+    - where: $\forall\ a,\ b\ secrets \in D$ and v is any possible vectors of v shares
+
+### Random Oracle
+  Treat the hash function as public and as a black box - all parties have access to it.
